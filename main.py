@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-app = Flask(__name__)
+app = Flask(__name__) #instancia o flask no aplicativo
 
 #lista
 contatos = []
@@ -9,36 +9,21 @@ contatos = []
 def index():
     return render_template('index.html', contatos=contatos)
 
-@app.route('/cadastro', methods=['GET', 'POST'])
-def cadastro():
+
+@app.route('/adicionar_contato', methods=['GET', 'POST'])
+def adicionar_contato():
     if request.method == 'POST':
         nome = request.form['nome']
-        telefone = request.form['telefone']
+        pet = request.form['pet']
+        especie = request.form['especie']
         email = request.form['email']
+        telefone = request.form['telefone']
         codigo = len(contatos)
-        contatos.append([codigo, nome, telefone, email])
+        contatos.append([codigo, nome, pet, especie, email, telefone])
         return redirect('/')
     else:
-        return render_template('adicionar_contato.html')  # Renderiza o formulário de adicionar contato
-@app.route('/editar_contato/<int:codigo>', methods=['GET', 'POST'])
-def editar_contato(codigo):
-    if request.method == 'POST':
-        nome = request.form['nome']
-        telefone = request.form['telefone']
-        email = request.form['email']
-        contatos[codigo] = [codigo, nome, telefone, email]
-        return redirect('/')  # Redireciona de volta para a página inicial
-    else:
-        contato = contatos[codigo]
-        return render_template('editar_contato.html', contato=contato)  # Renderiza o formulário de edição
+        return render_template('adicionar_contato.html')
 
-@app.route('/apagar_contato/<int:codigo>')
-def apagar_contato(codigo):
-    """
-    Rota para apagar um contato da lista.
-    """
-    del contatos[codigo]
-    return redirect('/')  # Redireciona de volta para a página inicial
 
 if __name__ == '__main__':
     app.run(debug=True) #executa o aplicativo Flask
