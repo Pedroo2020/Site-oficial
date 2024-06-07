@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Dodói</title>
+    <title>Lista de Agendas</title>
     <link rel="stylesheet" href="static/estilo.css">
 </head>
-<body>
+<body class="listaagendamento">
 
     <header>
         <nav>
@@ -31,19 +31,22 @@
 
     </header>
 
-    <h1>Calcular quantidade de medicamento</h1>
 
-    <form action="/medicamento" method="post">
-        <label for="peso">Digite o peso:</label>
-        <input type="number" id="peso" name="peso" required>
-        <label for="dose">Digite a dose:</label> 
-        <input type="number" id="dose" name="dose" required>
-        <button type="submit">Verificar</button> 
-    </form>
-    <div id="resultado">
-        {% if resultado %} 
-            {{ resultado }} 
-        {% endif %}
-    </div>
+
+
+    <h1>Lista de Agendas</h1>
+
+    <ul>
+        {% for consult in consulta %}
+        <li>{{ consult[1] }} - {{ consult[2] }} - {{ consult[3] }}- {{ consult[4] }}- {{ consult[5] }} - {{ consult[6] }}
+            <ul>
+                <li><a href="/apagar_agendamento/{{ loop.index0 }}">Cancelar Consulta</a></li> 
+
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/inserir_agendamento">Adicionar agendamento</a>
+
 </body>
 </html>

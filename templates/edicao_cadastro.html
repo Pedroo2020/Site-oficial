@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Contato</title>
+    <link rel="stylesheet" href="/static/estilo.css">
 </head>
 <body>
-    <a href="/modificar">Editar contato</a>
+
+    <header>
+        <nav>
+
+            <img src="/static/logo.png" alt="logo">
+
+            <div class="itens-menu">
+                <a href="/">Home</a>
+                <a href="/agendamento">Agendar</a>
+                <a href="/caes">Idade Cães</a>
+                <a href="/gatos">Idade Gatos</a>
+                <a href="/calcular_medicamento">Medicamentos</a>
+                <a href="/calculosoro">Soro</a>
+                <a href="/inserir_contato">Pacientes</a>
+            </div>
+        </nav>
+        <div class="info">
+            <p>✉ vetdogdodoi@gmail.com</p>
+            <p>📍 Av. São Vicente 330- SP</p>
+            <p>📞 11 99101-1010</p>
+        </div>
+
+    </header>
+
+    <h1>Editar Contato</h1>
+
+    <form action="/editar_contato/{{ contato[0] }}" method="POST">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" value="{{ contato[1] }}"><br>
+        <label for="pet">Nome do pet:</label><br>
+        <input type="text" id="pet" name="pet" value="{{ contato[2] }}"><br>
+        <label for="especie">Especie ou raça do pet:</label><br>
+        <input type="text" id="especie" name="especie" value="{{ contato[3] }}"><br>
+        <label for="telefone">Telefone:</label><br>
+        <input type="text" id="telefone" name="telefone" value="{{ contato[4] }}"><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" value="{{ contato[5] }}"><br> 
+        <input type="submit" value="Salvar">
+    </form>
 </body>
 </html>

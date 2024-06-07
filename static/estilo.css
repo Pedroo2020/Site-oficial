@@ -43,3 +43,221 @@ header .info {
     padding-top: 8px;
     padding-bottom: 8px;
 }
+
+.index .topo {
+    background-image: url("imagemcorpo.png");
+    background-repeat: no-repeat;
+    height: 450px;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.index .topo p {
+    color: black;
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.index .corpo .titulo {
+    color: #12B8AE;
+    padding-top: 40px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.index .corpo .part1 img {
+    width: 250px;
+
+}
+
+.index .corpo .part1 {
+    display: flex;
+    padding-left: 70px;
+    padding-top: 40px;
+    font-size: 20px;
+    justify-content: center;
+    gap: 200px;
+}
+
+.index .corpo .part1 .t1 {
+    color: #49A5AC;
+
+}
+
+.index .corpo2 .titulo2 {
+    color: #12B8AE;
+    padding-top: 70px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.index .corpo2 .especialidades {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 70px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.index .corpo2 .especialidades .itens h3 {
+    color: #4BC9D4;
+}
+
+.index .corpo2 .especialidades .itens img {
+    padding-bottom: 20px;
+}
+
+.index .corpo2 .especialidades .itens {
+    width: 230px;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0px 2px 10px 0px #cacaca;
+}
+
+.index .corpo3 .titulo3 {
+    color: #12B8AE;
+    padding-top: 70px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.index .corpo3 .avaliacoes {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 70px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.index .corpo3 .avaliacoes .comentarios {
+    width: 450px;
+    height: 250px;
+    padding: 40px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 40px;
+    background-color: #D9D9D9;
+}
+
+.index .corpo3 .avaliacoes .comentarios img {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.index .corpo3 .avaliacoes .comentarios p {
+    font-weight: bolder;
+}
+
+.rodape {
+    background-color: #A2DED7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.rodape img {
+    width: 15%;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.rodape .direitos {
+    margin-top: 140px;
+    font-weight: bolder;
+}
+
+.rodape .item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.rodape .info2 {
+    padding-right: 50px;
+}
+
+.paciente .topo2 {
+    background-image: url(imagemcorpo2.png);
+    background-repeat: no-repeat;
+    height: 450px;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.paciente .topo2 p {
+    margin-bottom: 45px;
+    background: #12B8AE;
+    text-align: center;
+    font-size: 21px;
+    color: #fff;
+    padding: 17px;
+    border-radius: 0 30px 30px 0;
+}
+
+.paciente .corpo p {
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #21625F;
+    font-size: 40px;
+}
+
+.paciente .corpo form {
+    background: #058D84;
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    padding: 27px;
+    max-width: 600px;
+    border-radius: 20px;
+}
+
+.paciente .corpo form .grupo {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.paciente .corpo form .grupo label {
+    color: white;
+}
+
+.paciente .corpo form .grupo input {
+    background-color: #08A39A;
+    border-radius: 3px;
+    border: none;
+    padding: 10px;
+    width: 100%;
+}
+
+.paciente .corpo form .grupo button {
+    background-color: #12B8AE;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    width: 120px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    color: white;
+}

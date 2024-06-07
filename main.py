@@ -18,38 +18,44 @@ def inserir_contato():
 def adicionar_contato():
     if request.method == 'POST':
         nome = request.form['nome']
-        telefone = request.form['telefone']
         pet = request.form['pet']
         especie = request.form['especie']
         email = request.form['email']
         telefone = request.form['telefone']
         codigo = len(contatos)
         contatos.append([codigo, nome, pet, especie, email, telefone])
-        return redirect('/')
+        return render_template('listaContatos.html', contatos=contatos)
     else:
         return render_template('adicionar_contato.html')  # Renderiza o formulário de adicionar contato
 
 @app.route('/modificar')
 def modificar():
-    return render_template('edicao_cadastro.html')
+    return render_template('edicao_cadastro.html', contato='')
 
 @app.route('/editar_contato/<int:codigo>', methods=['GET', 'POST'])
 def editar_contato(codigo):
     if request.method == 'POST':
         nome = request.form['nome']
+        pet = request.form['pet']
+        especie = request.form['especie']
         telefone = request.form['telefone']
         email = request.form['email']
-        contatos[codigo] = [codigo, nome, telefone, email]
-        return redirect('/')  # Redireciona de volta para a página inicial
+        contatos[codigo] = [codigo, nome, pet, especie, telefone, email]
+        return render_template('listaContatos.html', contatos=contatos)  # Redireciona de volta para a página inicial
     else:
         contato = contatos[codigo]
-        return render_template('editar_contato.html', contato=contato)  # Renderiza o formulário de edição
+        return render_template('edicao_cadastro.html', contato=contato)  # Renderiza o formulário de edição
 
 @app.route('/apagar_contato/<int:codigo>')
 def apagar_contato(codigo):
     del contatos[codigo]
     return redirect('/')
 
+
+@app.route('/apagar_agendamento/<int:codigo>')
+def apagar_agendamento(codigo):
+    del consulta[codigo]
+    return render_template('listaAgendamentos.html', consulta=consulta)
 
 
 @app.route('/calculosoro')
@@ -60,14 +66,15 @@ def calculosoro():
 def calcular_soro():
 
     peso = float(request.form['peso'])
-    grau_de_desidratação = request.form['grau']
+    grau_de_desidratacao = request.form['grau']
+    fluido = 0
 
-    if request.method == ['POST']:
-        if grau_de_desidratação == 'leve':
+    if request.method == 'POST':
+        if grau_de_desidratacao == 'leve':
             fluido = 50
-        elif grau_de_desidratação == 'moderada':
+        elif grau_de_desidratacao == 'moderada':
             fluido = 75
-        elif grau_de_desidratação == 'grave':
+        elif grau_de_desidratacao == 'grave':
             fluido = 100
         resultado = peso * fluido
         return render_template('calculosoro.html',resultado=resultado)
@@ -80,11 +87,12 @@ def calcular_medicamento():
 @app.route('/medicamento', methods=['GET', 'POST'])
 def medicamento():
 
-    if request.method == ['POST']:
+    if request.method == 'POST':
         peso = float(request.form['peso'])
         dose = float(request.form['dose'])
         resultado = peso * dose
         return render_template('calculomedicamento.html', resultado=resultado)
+
 
 @app.route('/agendamento')
 def agendamento():
@@ -92,17 +100,18 @@ def agendamento():
 
 @app.route('/inserir_agendamento', methods=['GET', 'POST'])
 def inserir_agendamento():
-
-    if request.method == ['POST']:
+    if request.method == 'POST':
         nm_animal = request.form['nome_animal']
         nm_tutor = request.form['nome_tutor']
+        raca = request.form['raca']
         data = request.form['data']
-        horario = request.form['horario']
         sintomas = request.form['sintomas']
+        telefone = request.form['telefone']
         codigo = len(consulta)
-        consulta.append = ([codigo, nm_animal, nm_tutor, data, horario, sintomas])
-
-        return render_template('agendamento.hmtl', consulta=consulta)
+        consulta.append([codigo, nm_animal, nm_tutor, raca, data, sintomas, telefone])
+        return render_template('listaAgendamentos.html', consulta=consulta)
+    else:
+        return render_template('agendamento.html')
 
 @app.route('/caes')
 def caes():
@@ -111,7 +120,7 @@ def caes():
 @app.route('/calculadora_caes', methods=['GET', 'POST'])
 def calculadora_caes():
 
-    if request.method == ['POST']:
+    if request.method == 'POST':
         idade_dog = int(request.form['idade_dog'])
         idade_humano = 0
 
@@ -130,7 +139,7 @@ def gatos():
 
 @app.route('/calculadora_gatos', methods=['GET', 'POST'])
 def calculadora_gatos():
-    if request.method == ['POST']:
+    if request.method == 'POST':
         idade_cat = int(request.form['idade_cat'])
         idade_humano = 0
 

@@ -1,10 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/estilo.css">
 </head>
 <body>
 
+    <header>
+        <nav>
+
+            <img src="static/logo.png" alt="logo">
+
+            <div class="itens-menu">
+                <a href="/">Home</a>
+                <a href="/agendamento">Agendar</a>
+                <a href="/caes">Idade Cães</a>
+                <a href="/gatos">Idade Gatos</a>
+                <a href="/calcular_medicamento">Medicamentos</a>
+                <a href="/calculosoro">Soro</a>
+                <a href="/inserir_contato">Pacientes</a>
+            </div>
+        </nav>
+        <div class="info">
+            <p>✉ vetdogdodoi@gmail.com</p>
+            <p>📍 Av. São Vicente 330- SP</p>
+            <p>📞 11 99101-1010</p>
+        </div>
+
+    </header>
+
+
+    <h1>Calculadora cães</h1>
+
+
+    <form action="/calculadora_caes" method="post">
+        <label for="idade_dog">Idade do dog:</label>
+        <input type="number" id="idade_dog" name="idade_dog" required>
+        <button type="submit">Verificar</button>
+    </form>
+    <div id="idade_humano">
+        {% if idade_humano %}
+            {{ idade_humano }}
+        {% endif %}
+    </div>
 </body>
 </html>
