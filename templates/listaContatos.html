@@ -6,7 +6,7 @@
     <title>Lista de Contatos</title>
     <link rel="stylesheet" href="static/estilo.css">
 </head>
-<body>
+<body class="listacntt">
 
     <header>
         <nav>
@@ -31,19 +31,36 @@
 
     </header>
 
-    <h1>Lista de Contatos</h1>
+    <section class="topo2">
+
+        <p class="text">"Na Dog Dodói, cuidamos do seu melhor amigo <br> com carinho e expertise!"</p>
+
+    </section>
     
-    <ul>
-        {% for contato in contatos %}
-        <li>{{ contato[1] }} - {{ contato[2] }} - {{ contato[3] }}- {{ contato[4] }}- {{ contato[5] }}
-            <ul>
-                <li><a href="/editar_contato/{{ loop.index0 }}">Editar</a></li> 
+    <section class="corpo">
 
-            </ul>
-        </li>
-        {% endfor %}
-    </ul>
-    <a href="/inserir_contato">Adicionar Contato</a> 
+        <p>Lista de pacientes:</p>
 
+        <div class="display">
+            <div class="lista">
+
+                    {% for contato in contatos %}
+                    <div class="info">
+                        <p>Cliente: {{ contato[1] }}</p>  
+                        <p>- Nome do Animal: {{ contato[2] }}</p> 
+                        <p>- Espécie: {{ contato[3] }}</p>
+                        <p>- Email: {{ contato[4] }}</p>
+                        <p>- Telefone: {{ contato[5] }}</p>
+                        <div class="editar">
+                            <a href="/editar_contato/{{ loop.index0 }}">Editar</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+
+
+            <a href="/inserir_contato" class="btn-add">Adicionar Contato</a> 
+        </div >
+    </section>
 </body>
 </html>

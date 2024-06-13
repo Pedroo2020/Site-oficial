@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/estilo.css">
 </head>
-<body>
+<body class="agendamento">
 
     <header>
         <nav>
@@ -31,26 +31,69 @@
 
     </header>
 
+    <section class="topo2">
 
-    <h1>Agendamento</h1>
+        <p class="text">Porque cada animal merece o melhor cuidado: <br>
+         a clínica veterinária de confiança.</p>
 
-    <form action="/inserir_agendamento" method="post">
-        <label for="nome_animal">Nome do pet:</label>
-        <input type="text" id="nome_animal" name="nome_animal" required>
-        <label for="nome_tutor">Nome do tutor:</label>
-        <input type="text" id="nome_tutor" name="nome_tutor" required>
-        <label for="raca">Espécie ou raça do Pet:</label>
-        <input type="text" id="raca" name="raca" required>
-        <label for="data">Data:</label>
-        <input type="datetime-local" id="data" name="data" required>
-        <label for="sintomas">Sintomas:</label>
-        <input type="text" id="sintomas" name="sintomas" required>
-        <label for="telefone">Telefone:</label>
-        <input type="tel" id="telefone" name="telefone" required>
+    </section>
 
-        <button type="submit">Salvar</button>
+    <section class="corpo">
 
-    </form>
+        <p>Agende sua consulta!</p>
 
+        <div>
+            <form action="/inserir_agendamento" method="post">
+
+                <div class="grupo">
+                    <label for="nome_animal">Nome do pet:</label>
+                    <input type="text" id="nome_animal" name="nome_animal" required>
+                </div>
+
+                <div class="grupo">
+                    <label for="nome_tutor">Nome do tutor:</label>
+                    <input type="text" id="nome_tutor" name="nome_tutor" required>
+                </div>
+
+                <div class="grupo">
+                    <label for="raca">Espécie ou raça do Pet:</label>
+                    <input type="text" id="raca" name="raca" required>
+                </div>
+
+                <div class="grupo">
+                    <label for="data">Data:</label>
+                    <input type="datetime-local" id="data" name="data" required>
+                </div>
+
+                <div class="grupo">
+                    <label for="sintomas">Sintomas:</label>
+                    <input type="text" id="sintomas" name="sintomas" required>
+                </div>
+
+                <div class="grupo">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+
+                <div class="grupo">
+                <button type="submit">SALVAR</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="rodape">
+
+        <img src="/static/logo.png" alt="logo">
+    
+        <p class="direitos">© Todos os direitos reservados</p>
+        
+        <div class="info2">
+            <p>📍 Av. São Vicente 330- SP</p>
+            <p class="item">✉ vetdogdodoi@gmail.com</p>
+            <p>📞 11 99101-1010</p>
+        </div>
+    </footer>
+    
 </body>
 </html>
