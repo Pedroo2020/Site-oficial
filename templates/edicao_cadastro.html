@@ -6,7 +6,7 @@
     <title>Editar Contato</title>
     <link rel="stylesheet" href="/static/estilo.css">
 </head>
-<body>
+<body class="editarcntt">
 
     <header>
         <nav>
@@ -31,20 +31,54 @@
 
     </header>
 
-    <h1>Editar Contato</h1>
+    <section class="corpo">
 
-    <form action="/editar_contato/{{ contato[0] }}" method="POST">
-        <label for="nome">Nome:</label><br>
-        <input type="text" id="nome" name="nome" value="{{ contato[1] }}"><br>
-        <label for="pet">Nome do pet:</label><br>
-        <input type="text" id="pet" name="pet" value="{{ contato[2] }}"><br>
-        <label for="especie">Especie ou raça do pet:</label><br>
-        <input type="text" id="especie" name="especie" value="{{ contato[3] }}"><br>
-        <label for="telefone">Telefone:</label><br>
-        <input type="text" id="telefone" name="telefone" value="{{ contato[4] }}"><br>
-        <label for="email">Email:</label><br>
-        <input type="text" id="email" name="email" value="{{ contato[5] }}"><br> 
-        <input type="submit" value="Salvar">
-    </form>
+        <p>Editar contato:</p>
+
+        <form action="/editar_contato/{{ contato[0] }}" method="POST">
+
+            <div class="grupo">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" value="{{ contato[1] }}">
+            </div>
+
+            <div class="grupo">
+                <label for="pet">Nome do pet:</label>
+                <input type="text" id="pet" name="pet" value="{{ contato[2] }}">
+            </div>
+
+            <div class="grupo">
+                <label for="especie">Especie ou raça do pet:</label>
+                <input type="text" id="especie" name="especie" value="{{ contato[3] }}">
+            </div>
+
+            <div class="grupo">
+                <label for="telefone">Telefone:</label>
+                <input type="text" id="telefone" name="telefone" value="{{ contato[4] }}">
+            </div>
+
+            <div class="grupo">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" value="{{ contato[5] }}">
+            </div>
+
+            <div class="grupo">
+                <input class="button" type="submit" value="Salvar">
+            </div>
+        </form>
+    </section>
+
+    <footer class="rodape">
+
+        <img src="/static/logo.png" alt="logo">
+    
+        <p class="direitos">© Todos os direitos reservados</p>
+        
+        <div class="info2">
+            <p>📍 Av. São Vicente 330- SP</p>
+            <p class="item">✉ vetdogdodoi@gmail.com</p>
+            <p>📞 11 99101-1010</p>
+        </div>
+    </footer>
 </body>
 </html>

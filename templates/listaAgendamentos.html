@@ -31,22 +31,37 @@
 
     </header>
 
+    <section class="topo2">
+
+        <p class="text">"Na Dog Dodói, cuidamos do seu melhor amigo <br> com carinho e expertise!"</p>
+
+    </section>
+
+    <section class="corpo">
+
+        <p>Lista de consultas</p>
+
+        <div class="display">
+            <div class="lista">
+
+                {% for consult in consulta %}
+                    <div class="info">
+                        <p>Nome do tutor: {{ consult[1] }}</p>  
+                        <p>- Nome do Animal: {{ consult[2] }}</p> 
+                        <p>- Espécie: {{ consult[3] }}</p>
+                        <p>- Data: {{ consult[4] }}</p>
+                        <p>- Motivo da consulta: {{ consult[5] }}</p>
+                        <p>- Telefone: {{ consult[6] }}</p>
+
+                        <a href="/apagar_agendamento/{{ loop.index0 }}">Cancelar Consulta</a> 
+                    </div>
+                    {% endfor %}
+            </div>
 
 
-
-    <h1>Lista de Agendas</h1>
-
-    <ul>
-        {% for consult in consulta %}
-        <li>{{ consult[1] }} - {{ consult[2] }} - {{ consult[3] }}- {{ consult[4] }}- {{ consult[5] }} - {{ consult[6] }}
-            <ul>
-                <li><a href="/apagar_agendamento/{{ loop.index0 }}">Cancelar Consulta</a></li> 
-
-            </ul>
-        </li>
-        {% endfor %}
-    </ul>
-    <a href="/inserir_agendamento">Adicionar agendamento</a>
+            <a href="/inserir_agendamento" class="btn-add">Adicionar agendamento</a>
+        </div >
+    </section>
 
 </body>
 </html>

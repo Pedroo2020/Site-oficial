@@ -41,7 +41,7 @@ def editar_contato(codigo):
         telefone = request.form['telefone']
         email = request.form['email']
         contatos[codigo] = [codigo, nome, pet, especie, telefone, email]
-        return render_template('listaContatos.html', contatos=contatos)  # Redireciona de volta para a página inicial
+        return redirect('/lista-agendamentos')  # Redireciona de volta para a página inicial
     else:
         contato = contatos[codigo]
         return render_template('edicao_cadastro.html', contato=contato)  # Renderiza o formulário de edição
@@ -55,7 +55,7 @@ def apagar_contato(codigo):
 @app.route('/apagar_agendamento/<int:codigo>')
 def apagar_agendamento(codigo):
     del consulta[codigo]
-    return render_template('listaAgendamentos.html', consulta=consulta)
+    return redirect('/lista-agendamentos')
 
 
 @app.route('/calculosoro')
@@ -112,6 +112,10 @@ def inserir_agendamento():
         return render_template('listaAgendamentos.html', consulta=consulta)
     else:
         return render_template('agendamento.html')
+
+@app.route('/lista-agendamentos', methods=['GET'])
+def listaTodos():
+    return render_template('listaAgendamentos.html', consulta=consulta)
 
 @app.route('/caes')
 def caes():
